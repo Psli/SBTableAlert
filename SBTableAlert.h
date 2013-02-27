@@ -44,6 +44,7 @@ typedef enum {
 
 // use this class if you would like to use the custom section headers by yourself
 @interface SBTableViewSectionHeaderView : UIView {}
+- (id)initWithTitle:(NSString *)title;
 @property (nonatomic, copy) NSString *title;
 @end
 
@@ -57,6 +58,7 @@ typedef enum {
 @optional
 
 - (CGFloat)tableAlert:(SBTableAlert *)tableAlert heightForRowAtIndexPath:(NSIndexPath *)indexPath;
+- (UIView *)tableAlert:(SBTableAlert *)tableAlert viewForHeaderInSection:(NSInteger)section;
 
 - (void)tableAlert:(SBTableAlert *)tableAlert didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
 - (void)tableAlertCancel:(SBTableAlert *)tableAlert;

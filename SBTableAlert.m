@@ -432,8 +432,12 @@
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    if ([_delegate respondsToSelector:@selector(tableAlert:viewForHeaderInSection:)])
+        return [_delegate tableAlert:self viewForHeaderInSection:section];
+    
 	if ([_dataSource respondsToSelector:@selector(tableAlert:titleForHeaderInSection:)]) {
-		NSString *title = [_dataSource tableAlert:self titleForHeaderInSection:section];
+	
+        NSString *title = [_dataSource tableAlert:self titleForHeaderInSection:section];
 		if (!title)
 			return nil;
 		
